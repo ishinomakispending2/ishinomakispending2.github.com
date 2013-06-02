@@ -1,10 +1,10 @@
-# 俺のゼニはどこ行った for 小金井
+# 俺のゼニはどこ行った for 石巻
 
-wheredoesmymoney.orgの東京都小金井市バージョンです．
+wheredoesmymoney.orgの宮城県石巻市バージョンです．
 
 横浜バージョンから派生しました。
 
-データ・ソースは http://openspending.org/jptokyokoganeibudget
+データ・ソースは http://openspending.org/ishinomakibudget
 
 Core Team: (@は Twitter Account)
 
