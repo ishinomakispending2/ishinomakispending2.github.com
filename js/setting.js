@@ -10,7 +10,8 @@ Taxes.taxRate = 0.06; // 住民税率
 
 var OpenSpending = OpenSpending || {};
 
-OpenSpending.identifier = 'ishinomakinormal';
+/* OpenSpending.identifier = 'ishinomakinormal'; */
+OpenSpending.identifier = dataset;
 OpenSpending.year = '2013';
 
 OpenSpending.Styles = OpenSpending.Styles || {};
