@@ -4,7 +4,7 @@ wheredoesmymoney.orgの宮城県石巻市バージョンです．
 
 横浜バージョンから派生しました。
 
-データ・ソースは http://openspending.org/ishinomakibudget
+データ・ソースは http://openspending.org/ishinomakinormal
 
 Core Team: (@は Twitter Account)
 
