@@ -31,6 +31,15 @@
             あなたが宮城県石巻市に納めた税金がどこで使われているかをお示しします
           </div>
         </a>
+          <div class="control-group">
+            <label class="control-label" for="select01">データ</label>
+              <div class="controls">
+                <select id="select01" onchange="changeSelect()">
+                  <option value="ishinomakinormal" selected>一般財源のみ</option>
+                  <option value="ishinomaki">一般財源＋国庫支出金＋県支出金</option>
+                </select>
+              </div>
+          </div>
       </div>
       <nav>
         <ul class="nav nav-tabs">
@@ -53,6 +62,13 @@
             }
           });
         });
+      </script>
+      <script type="text/javascript">
+      function changeSelect(){
+        var select = document.getElementById('select01');
+        var options = document.getElementById('select01').options;
+        dataset = options.item(select.selectedIndex).value;
+      }
       </script>
     </div>
   </header>
