@@ -16,7 +16,6 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript">datasetid="ishinomakinormal";</script>
   <!--
   <script src="http://d3js.org/d3.v2.js"></script>
   -->
@@ -68,7 +67,7 @@
       function changeSelect(){
         var select = document.getElementById('select01');
         var options = document.getElementById('select01').options;
-        datasetid = options.item(select.selectedIndex).value;
+        dataset = options.item(select.selectedIndex).value;
       }
       </script>
     </div>
