@@ -31,7 +31,7 @@ OpenSpending.Styles.Cofog = {
   '4': { icon: 'icons/civilian-action.svg', color: '#C75746', bcolor: '#D33673' }, // 産業
   '401': { icon: 'icons/c_nougyou.svg', color: '#C75746', bcolor: '#D33673' }, // 農業
   '402': { icon: 'icons/forest.svg', color: '#C75746', bcolor: '#D33673' }, // 林業
-  '403': { icon: 'icons/ishing.svg', color: '#C75746', bcolor: '#D33673' }, // 水産業
+  '403': { icon: 'icons/fishing.svg', color: '#C75746', bcolor: '#D33673' }, // 水産業
   '404': { icon: 'icons/c_syoukougyou.svg', color: '#C75746', bcolor: '#D33673' }, // 商工業
   '405': { icon: 'icons/island.svg', color: '#C75746', bcolor: '#D33673' }, // 観光業
   '5': { icon: 'icons/helping-others.svg', color: '#C75746', bcolor: '#2A3A03' }, // 健康・福祉・環境
