@@ -8,10 +8,10 @@ Taxes.baseKoujo = 330000; // 住民税基礎控除
 Taxes.huyoKoujo = 330000; // 一人分の扶養控除
 Taxes.taxRate = 0.06; // 住民税率
 
-var OpenSpending = OpenSpending || {};
+// var OpenSpending = OpenSpending || {};
+OpenSpending = OpenSpending || {};
 
 OpenSpending.identifier = 'ishinomakinormal';
-/* OpenSpending.identifier = datasetid; */
 OpenSpending.year = '2013';
 
 OpenSpending.Styles = OpenSpending.Styles || {};
@@ -53,4 +53,86 @@ OpenSpending.Styles.Cofog = {
   '806': { icon: 'icons/our-streets.svg', color: '#C75746', bcolor: '#C35B4B' }  // 基金・諸経費
 };
 
+if (window.location.pathname == "/")
+{
+  function dailybreaddraw() {
 
+    (function ($) {
+
+      $(function () {
+        $('#preloader .txt').html('loading data');
+
+       var db = new OpenSpending.DailyBread($('#dailybread'));
+       new OpenSpending.Aggregator({
+           apiUrl: 'http://openspending.org/api',
+           //localApiCache: 'aggregate.json',
+           dataset: OpenSpending.identifier,
+           drilldowns: ['category', 'subcategory'],
+           cuts: ['year:' + OpenSpending.year],
+           rootNodeLabel: 'Total',
+           breakdown: 'category',
+           callback: function(data) {
+
+            $('#content-wrap').show();
+            $('#preloader').remove();
+
+            db.setDataFromAggregator(data, ['unknown']);
+            db.setIconLookup(function(name) {
+              var style = OpenSpending.Styles.Cofog[name];
+              if (style != undefined) {
+               return style['icon'];
+              }
+              return 'icons/unknown.svg';
+            });
+            db.draw();
+           }
+        });
+
+        OpenSpending.renderDependentTypes(db);
+      });
+    })(jQuery)
+  }
+};
+
+if (window.location.pathname == "/bubbletree.html") {
+  function bubbletreedraw() {
+    $(function() {
+      var $tooltip = $('<div class="tooltip">Tooltip</div>');
+      $('.bubbletree').append($tooltip);
+      $tooltip.hide();
+
+      var dataLoaded = function(data) {
+        window.bubbleTree = new BubbleTree({
+          data: data,
+          container: '#bubbletree',
+          bubbleType: 'icon',
+          bubbleStyles: {
+              'cofog':  OpenSpending.Styles.Cofog,
+          },
+          clearColors: true, // remove all colors coming from OpenSpending API
+          rootPath: '/',
+            tooltip: {
+              qtip: true,
+              delay: 800,
+              content: function(node) {
+                return [node.label, '<div class="desc">'+(node.description ? node.description : 'No description given')+'</div><div class="amount">\u00A5 '+node.famount+'</div>'];
+              }
+            }
+        });
+      };
+
+      // call openspending api for data
+      new OpenSpending.Aggregator({
+        apiUrl: 'http://openspending.org/api',
+        //Use static file instead of api
+        //localApiCache: 'aggregate.json',
+        dataset: OpenSpending.identifier,
+        rootNodeLabel: 'Total',
+        drilldowns: ['category', 'subcategory'],
+        cuts: ['year:' + OpenSpending.year],
+        breakdown: 'subcategory',
+        callback: dataLoaded
+      });
+    });
+  }
+};

@@ -35,7 +35,7 @@
             <label class="control-label" for="select01">データ</label>
               <div class="controls">
                 <select id="select01" onchange="changeSelect()">
-                  <option value="ishinomakinormal" selected>一般財源のみ</option>
+                  <option value="ishinomakinormal">一般財源のみ</option>
                   <option value="ishinomaki">一般財源＋国庫支出金＋県支出金</option>
                 </select>
               </div>
@@ -67,8 +67,21 @@
       function changeSelect(){
         var select = document.getElementById('select01');
         var options = document.getElementById('select01').options;
-        datasetid = options.item(select.selectedIndex).value;
-      }
+        // datasetid = options.item(select.selectedIndex).value;
+        OpenSpending.identifier = options.item(select.selectedIndex).value;
+
+        if (window.location.pathname == "/") {
+          $('.single > svg').remove();
+          $('.family > svg').remove();
+          $('.db-tier').remove();
+          dailybreaddraw();
+        };
+
+        if (window.location.pathname == "/bubbletree.html") {
+          $('span').remove();
+          bubbletreedraw();
+        }
+      };
       </script>
     </div>
   </header>

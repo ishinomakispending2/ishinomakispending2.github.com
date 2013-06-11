@@ -940,7 +940,7 @@ BubbleTree.Loader = function(config) {
    */
   me.loadData = function() {
     var me = this, url = me.config.data;
-    //console.log('loading url ',url);
+    console.log('loading url ',url);
     $.ajax({
       url: url,
       context: me,

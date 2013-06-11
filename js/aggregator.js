@@ -49,7 +49,7 @@ var OpenSpending = OpenSpending || {};
     self.queryData = function () {
         var data = {}, config = self.config;
 
-        data.dataset = config.dataset;
+        data.dataset = config.dataset;        
         data.drilldown = config.drilldowns.join('|');
 
         if (config.cuts !== undefined) {
