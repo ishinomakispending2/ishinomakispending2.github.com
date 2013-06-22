@@ -71,10 +71,7 @@
         OpenSpending.identifier = options.item(select.selectedIndex).value;
 
         if (window.location.pathname == "/") {
-          $('.single > svg').remove();
-          $('.family > svg').remove();
-          $('.db-tier').remove();
-          dailybreaddraw();
+          location.href = "http://ishinomakispending.github.com";
         };
 
         if (window.location.pathname == "/bubbletree.html") {
